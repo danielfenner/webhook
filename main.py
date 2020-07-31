@@ -1,3 +1,4 @@
+import logging
 from flask import json
 from flask import request
 from flask import Flask
@@ -8,7 +9,7 @@ app = Flask(__name__)
 @app.route('/github', methods=['POST'])
 def api_gh_message():
     if request.headers['Content-Type'] == 'application/json':
-        print (json.dumps(request.json))
+        logging.info(json.dumps(request.json))
         return json.dumps(request.json)
 
 if __name__ == '__main__':
